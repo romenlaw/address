@@ -1,6 +1,6 @@
 What
 
-The concept of Address in this document refers to the geographical address – e.g. your house address, and various forms of it, including postal address, property address and so on.
+The concept of Address in this project refers to the geographical address – e.g. your house address, and various forms of it, including postal address, property address and so on.
 
 In this project, I introduce a way of representing Address in a flexible manner using meta-data. Then I build the Address component based on this design using various technologies and frameworks.
 
