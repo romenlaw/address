@@ -5,10 +5,8 @@ package com.laws.address;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.laws.util.BaseComparator;
 
-
-public class AddressField extends BaseComparator<AddressField> implements Serializable {
+public class AddressField implements Serializable, Comparable<AddressField> {
 	/**
 	 * 
 	 */
@@ -193,15 +191,12 @@ public class AddressField extends BaseComparator<AddressField> implements Serial
     private AddressFieldType addressFieldType;
 
 	@Override
-	public int compare(AddressField af1, AddressField af2) {
-		int result=0;
-		if (af1.getAddressFieldType().getHierarchyOrder()>af2.getAddressFieldType().getHierarchyOrder())
-            result=1;
-        else if(af1.getAddressFieldType().getHierarchyOrder()<af2.getAddressFieldType().getHierarchyOrder())
-            result=-1;
-        if(order==ASCENDING)
-        	return result;
-        else
-        	return -result;
+	public int compareTo(AddressField other) {
+		if(this.equals(other)) 
+			return 0;
+		AddressField af=(AddressField)other;
+		return (int) (this.getAddressFieldType().getHierarchyOrder() 
+                - af.getAddressFieldType().getHierarchyOrder());
+
 	}
 }
